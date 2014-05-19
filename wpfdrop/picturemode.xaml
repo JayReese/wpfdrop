@@ -1,0 +1,17 @@
+﻿        <Window x:Class="wpfdrop.picturemode"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="picturemode" Height="300" Width="300" WindowStartupLocation="CenterScreen" AllowDrop="True" DragEnter="Window_DragEnter" Drop="Window_Drop" KeyDown="Window_KeyDown" MouseLeftButtonDown="Window_MouseLeftButtonDown" WindowStyle="None">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Change Background" Click="MenuItem_Click_1"/>
+            <MenuItem Header="Toggle Window Lock" Click="MenuItem_Click_3" IsCheckable="True" InputGestureText="Crtl + L"/>
+            <MenuItem Header="Toggle OnTop" Click="MenuItem_Click_2" IsCheckable="True" InputGestureText="Crtl + T"/>
+            <MenuItem Header="Rules" Click="MenuItem_Click_4" InputGestureText=" Crtl + R"/>
+            <MenuItem Header="List Mode" Click="MenuItem_Click_5"/>
+            <MenuItem/>
+        </ContextMenu>
+    </Window.ContextMenu>
+
+    <Grid/>
+</Window>

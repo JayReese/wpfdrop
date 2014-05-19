@@ -1,0 +1,46 @@
+﻿<Window x:Class="wpfdrop.rules"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="rules" Height="274.831" Width="595" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Activated="Window_Activated_1">
+    <Grid>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="651,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.288,0.383" Visibility="Hidden"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="651,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.288,0.383" Visibility="Hidden"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="651,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" RenderTransformOrigin="0.288,0.383" Visibility="Hidden"/>
+        <Label x:Name="l1" Content="Rule" HorizontalAlignment="Left" Margin="589,10,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="l3" Content="Keyword" HorizontalAlignment="Left" Margin="589,99,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="0.806,0.615" Visibility="Hidden"/>
+        <Label x:Name="l4" Content="Path" HorizontalAlignment="Left" Margin="589,154,0,0" VerticalAlignment="Top" Width="35" Visibility="Hidden"/>
+        <Label x:Name="l2" Content="Action" HorizontalAlignment="Left" Margin="589,50,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button x:Name="location" Content="Location" HorizontalAlignment="Left" Margin="830,151,0,0" VerticalAlignment="Top" Width="25" Click="Button_Click" Height="26" RenderTransformOrigin="-0.48,0.423" Visibility="Hidden"/>
+        <Button x:Name="saverule" Content="Save Rule" HorizontalAlignment="Left" Margin="685,198,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Visibility="Hidden"/>
+        <Button Content="Save and Exit" HorizontalAlignment="Left" Margin="547,273,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2" Visibility="Hidden"/>
+        <Button Content="Add Rule" HorizontalAlignment="Left" Margin="245,198,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_3"/>
+
+        <ListView x:Name="listview1"  HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="580" KeyDown="listview1_KeyDown" SelectionMode="Single" SelectionChanged="listview1_SelectionChanged" MouseDoubleClick="listview1_MouseDoubleClick" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn>
+                        <CheckBox Name="chkAll" Margin="0" VerticalAlignment="Center" Checked="selectAll" Unchecked="unSelectAll"  />
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox Margin="0" VerticalAlignment="Center" IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListViewItem}}}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Rules" Width="75" DisplayMemberBinding="{Binding rulesq}" />
+                    <GridViewColumn Header="Keywords" Width="100" DisplayMemberBinding="{Binding keysq}" />
+                    <GridViewColumn Header="Action" Width="100" DisplayMemberBinding="{Binding actionq}" />
+                    <GridViewColumn Header="Paths" Width="310" DisplayMemberBinding="{Binding pathsq}" />
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ComboBox x:Name="comboBox" SelectedValuePath="Content" HorizontalAlignment="Left" Margin="651,50,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="comboBox_SelectionChanged" Visibility="Hidden">
+            <ComboBoxItem Content="Zip"/> 
+            <ComboBoxItem Content="Unzip"/> 
+            <ComboBoxItem Content="Copy"/> 
+            <ComboBoxItem Content="Move"/> 
+            <ComboBoxItem Content="Delete"/> 
+            <ComboBoxItem Content="Rename"/> 
+        </ComboBox>
+    </Grid>
+</Window>
